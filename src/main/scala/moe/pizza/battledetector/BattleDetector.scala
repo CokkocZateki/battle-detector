@@ -65,7 +65,13 @@ class BattleDetector(pilotthreshold: Long = 20, timewindow: Int = 1) {
           case None => accumulators :+ kmgroup
         }
       }.foreach { battle =>
-        println(s"detected a battle in ${system} with ${battle.length} killmails and ${uniquepilots} unique pilots")
+        val battleuniques = battle.flatMap(_.attackers).map(_.characterName).toSet
+          .union(
+            battle.map(_.victim).map(_.characterName).toSet
+          )
+
+
+        println(s"detected a battle in ${system} with ${battle.length} killmails and ${battleuniques.length} unique pilots")
       }
 
 
