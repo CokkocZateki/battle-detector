@@ -6,4 +6,4 @@ scalaVersion := "2.11.8"
 
 resolvers += Resolver.jcenterRepo
 
-libraryDependencies ++= Seq("moe.pizza" %% "eveapi" % "0.39")
+libraryDependencies ++= Seq("moe.pizza" %% "eveapi" % "0.41")
